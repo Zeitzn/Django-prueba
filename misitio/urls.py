@@ -15,7 +15,11 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-
+from misitio.views import hola,raiz,fecha_actual,horas_adelante
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('',raiz),
+    path('hola/',hola),
+    path('fecha/',fecha_actual),
+    path('fecha/mas/<int:offset>/',horas_adelante),
 ]
