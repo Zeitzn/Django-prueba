@@ -16,10 +16,15 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from misitio.views import hola,raiz,fecha_actual,horas_adelante
+from contacto.views import contactos
+from biblioteca import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',raiz),
     path('hola/',hola),
     path('fecha/',fecha_actual),
     path('fecha/mas/<int:offset>/',horas_adelante),
+    path('formulario-buscar/',views.formulario_buscar),
+    path('buscar/',views.buscar),
+    path('contactos/',contactos)
 ]

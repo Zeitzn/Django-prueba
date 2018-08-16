@@ -10,14 +10,19 @@ class Editor(models.Model):
     pais=models.CharField(max_length=50)
     website=models.URLField()
 
+    class Meta:
+        verbose_name_plural="Editores"
+
 class Autor(models.Model):
     nombre=models.CharField(max_length=30)
     apellidos=models.CharField(max_length=40)
     email=models.EmailField()
+    class Meta:
+        verbose_name_plural="Autores"
 
 class Libro(models.Model):
     titulo=models.CharField(max_length=100)
     autores=models.ManyToManyField(Autor)
     editor=models.ForeignKey(Editor, null=True,blank=True, on_delete=models.CASCADE)
     fecha_publicacion=models.DateField()
-    portada=models.CharField(max_length=100)
+    portada=models.ImageField(upload_to='portadas')
